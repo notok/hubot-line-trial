@@ -14,8 +14,10 @@ class Line extends Adapter
         "text": strings.join('\n')
       }
     })
+    console.log(data)
     # using request module to use FIXIE PROXY
-    proxyopt = {} ? {'proxy': process.env.FIXIE_URL}
+    proxyopt = {}
+    proxyopt = {'proxy': process.env.FIXIE_URL} if process.env.FIXIE_URL
     customRequest = request.defaults(proxyopt)
     customRequest.post
       url: @lineEndpoint,
@@ -25,14 +27,15 @@ class Line extends Adapter
         'X-Line-Trusted-User-With-ACL': @channelMid,
         'Content-Type': 'application/json; charset=UTF-8'
       },
-      json: true,
       body: data
     , (err, response, body) ->
       throw err if err
       if response.statusCode is 200
+        console.log "success"
         console.log body
       else
         console.log "response error: #{response.statusCode}"
+        console.log body
 
   run: ->
     @endpoint = process.env.HUBOT_ENDPOINT ? '/hubot/incoming'
