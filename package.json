@@ -1,0 +1,31 @@
+{
+  "name": "hubot-line-trial",
+  "version": "0.0.4",
+  "description": "A hubot adaptor for line bot api trial",
+  "main": "src/line.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notok/hubot-line-trial.git"
+  },
+  "keywords": [
+    "hubot",
+    "line",
+    "adapter"
+  ],
+  "author": "notok",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/notok/hubot-line-trial/issues"
+  },
+  "homepage": "https://github.com/notok/hubot-line-trial#readme",
+  "dependencies": {
+    "hubot": "^2.18.0",
+    "request": "^2.70.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.10.0"
+  }
+}
