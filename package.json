@@ -1,6 +1,6 @@
 {
   "name": "hubot-line-trial",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "A hubot adaptor for line bot api trial",
   "main": "src/line.coffee",
   "scripts": {
