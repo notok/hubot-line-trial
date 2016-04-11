@@ -6,9 +6,10 @@ A [hubot](https://github.com/github/hubot) adaptor for
 ## Prepare
 
 * Get line bot api trial account.
-  * https://business.line.me/services/products/4/introduction
+  * https://business.line.me/ja/products/4/introduction
 * Create bot account.
   * Set callback url like `https://<hubot hostname>:443/hubot/incoming`
+  * Set Server IP Whitelist
 
 ## Install
 

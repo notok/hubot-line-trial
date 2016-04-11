@@ -53,12 +53,21 @@ class Line extends Adapter
       @robot.logger.emergency "LINE_CHANNEL_MID is required"
       process.exit 1
     @robot.router.post @endpoint, (req, res) =>
-      console.log(req.body)
+      console.log("callback body: " + JSON.stringify(req.body))
+      # TODO check signature
       results = req.body.result
       for result in results
-        {from, text} = result.content
-        console.log(from)
-        console.log(text)
+        if result.eventType != "138311609000106303"
+          console.log("EventType is not 'Received message'. Skipping..")
+          res.send 201
+          return
+        {from, text, contentType} = result.content
+        if contentType isnt 1
+          console.log("ContentType is not 'text'. Skipping..")
+          res.send 201
+          return
+        console.log("from: " + from)
+        console.log("text: " + text)
         user = @robot.brain.userForId from, room: 'room'
         @receive new TextMessage(user, text, 'messageId')
         res.send 201
